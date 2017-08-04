@@ -66,7 +66,6 @@ void printvec(double *vec, int n, int N, int NNNODES)
 {
     printf("[");
     for(int i=n; i<N; i++) {
-        if (((i-n) % NNNODES == 0) && i != 0) printf("|");
         if(i-n > MAXPRINTED) {
             printf("\n");
             return;
@@ -168,4 +167,16 @@ void checksolnmat(double *x, int NNODES, int NSPECTRUMS, int NSESSIONS)
     printf("\n");
 
     for(int n=0; n<NNODES; n++) free(mat[n]);
+}
+void writeextreme(FILE *fp, double *vec, int NCOLS)
+{
+    for(int i=0; i<NCOLS; i++)
+        fprintf(fp, "%lf ", vec[i]);
+    fprintf(fp, "\n");
+}
+void readextreme(FILE *fp, double *vec, int NCOLS)
+{
+    for(int i=0; i<NCOLS; i++)
+        fscanf(fp, "%lf", &vec[i]);
+
 }

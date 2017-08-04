@@ -36,7 +36,7 @@ extern int build(int VERBOSE, int DEBUG, int NNODES, int NSPECTRUMS, int NSESSIO
 
 extern int branch(int VERBOSE, int DEBUG, int NNODES, int NSPECTRUMS, int NSESSIONS, int **links, int *src, int *dest, double *soln);
 
-extern double solvebranch(int VERBOSE, int DEBUG, int NNODES, int NSPECTRUMS, int NSESSIONS, int **links, int *src, int *dest, double *soln);
+extern double solve(int VERBOSE, int DEBUG, int NNODES, int NSPECTRUMS, int NSESSIONS, int **links, int *src, int *dest, double *soln);
 
 extern int debug(int VERBOSE, int DEBUG, int NNODES, int NSPECTRUMS, int NSESSIONS, int **links, int *src, int *dest, char* dfname);
 

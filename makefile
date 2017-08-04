@@ -15,23 +15,18 @@ all: dwdecomp
 check.o: check.c
 	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 check.c -g -c $(CLNFLAGS)
 
-build.o: build.c
-	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 build.c -g -c $(CLNFLAGS)
-
 util.o: util.c
 	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 util.c -g -c $(CLNFLAGS)
-
-branch.o: branch.c
-	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 branch.c -g -c $(CLNFLAGS)
-
-solve.o: solve.c
-	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 solve.c -g -c $(CLNFLAGS)
 
 debug.o: debug.c
 	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 debug.c -g -c $(CLNFLAGS)
 
-dwdecomp: dwdecomp.c check.o dwdecomp.h build.o branch.o solve.o util.o
-	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 dwdecomp.c check.o build.o branch.o util.o solve.o -g -o dwdecomp  $(CLNFLAGS)
+dwdecomp: dwdecomp.c check.o dwdecomp.h util.o debug.o
+	$(CC) $(COPT) $(INCLUDE) $(LIBS) -std=gnu99 dwdecomp.c check.o util.o debug.o -g -o dwdecomp  $(CLNFLAGS)
+
+file:
+	rm -f extremepts.out
+	touch extremepts.out
 
 
 clean:

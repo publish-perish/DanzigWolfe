@@ -19,5 +19,7 @@ extern void printvecd(int *vec, int n, int N);
 extern void printheaders(int NNODES, int NSPECTRUMS, int NSESSIONS);
 extern void shuffle(int *array, size_t array_size, size_t shuff_size);
 extern void printnonzero(double *vec, int NNNODES, int NSPECTRUMS, int NSESSIONS);
+extern void writeextreme(FILE *fp, double *vec, int NCOLS);
+extern void readextreme(FILE *fp, double *vec, int NCOLS);
 
 #endif
